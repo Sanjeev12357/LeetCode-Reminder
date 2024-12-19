@@ -100,7 +100,9 @@ app.post('/api/set-reminder', async (req, res) => {
 
 // Check Reminders API (Cron Job)
 app.post('/api/check-reminders', async (req, res) => {
-  if (req.headers['x-cron-secret'] !== process.env.CRON_SECRET) {
+    console.log('CRON_SECRET:', process.env.CRON_SECRET);
+
+  if (req.headers['x-cron-secret'] !== "Sanjeev") {
     return res.status(401).json({ error: 'Unauthorized' });
   }
 

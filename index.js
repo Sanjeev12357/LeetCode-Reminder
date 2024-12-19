@@ -2,10 +2,13 @@ const express = require('express');
 const mongoose = require('mongoose');
 const nodemailer = require('nodemailer');
 const dotenv = require('dotenv');
+const cors=require('cors');
+
 
 dotenv.config();
 
 const app = express();
+app.use(cors());
 app.use(express.json());
 
 // MongoDB connection
@@ -138,7 +141,7 @@ app.post('/api/check-reminders', async (req, res) => {
 });
 
 // Start the server
-const PORT = process.env.PORT || 3000;
+const PORT =  3000;
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
 });
